@@ -1,0 +1,42 @@
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "buddy.js": "^0.9.3",
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.2",
+    "jest": "^29.3.1",
+    "prettier": "^2.7.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "prepare": "husky install",
+    "buddy": "buddy -e src/ && buddy -e test/",
+    "lint": "eslint --fix \"**/*.js\"",
+    "lint:ci": "eslint \"**/*.js\"",
+    "prettier": "prettier . --write",
+    "prettier:ci": "prettier .",
+    "coverage": "jest --coverage"
+  },
+  "lint-staged": {
+    "{src,test,tasks}/**/*.js": [
+      "npm run prettier",
+      "npm run lint",
+      "npm run buddy"
+    ]
+  }
+}
